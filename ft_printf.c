@@ -6,13 +6,19 @@
 /*   By: skawanis <skawanis@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 22:42:48 by skawanis          #+#    #+#             */
-/*   Updated: 2023/03/26 22:42:50 by skawanis         ###   ########.fr       */
+/*   Updated: 2023/03/27 21:14:38 by skawanis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-ssize_t	handle_format(char type, va_list list)
+static ssize_t	ft_putptr_fd(size_t ptr, int fd)
+{
+	ft_putstr_fd("0x", fd);
+	return (2 + ft_putlowerhex_fd(ptr, fd));
+}
+
+static ssize_t	handle_format(char type, va_list list)
 {
 	if (type == 'd' || type == 'i')
 	{
@@ -28,6 +34,8 @@ ssize_t	handle_format(char type, va_list list)
 		return (ft_putlowerhex_fd(va_arg(list, int), 1));
 	if (type == 'X')
 		return (ft_putupperhex_fd(va_arg(list, int), 1));
+	if (type == 'p')
+		return (ft_putptr_fd(va_arg(list, size_t), 1));
 	return (0);
 }
 
