@@ -6,7 +6,7 @@
 /*   By: skawanis <skawanis@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:43:13 by skawanis          #+#    #+#             */
-/*   Updated: 2023/03/27 21:45:32 by skawanis         ###   ########.fr       */
+/*   Updated: 2023/03/27 21:58:16 by skawanis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,6 @@ void	test3(void)
 {
 	printf("return = %d\n", printf("%s", NULL));
 	printf("return = %d\n", ft_printf("%s", NULL));
-	puts("===");
-	printf("return = %d\n", printf("%p", 0));
-	printf("return = %d\n", ft_printf("%p", 0));
 	puts("===");
 	printf("return = %d\n", printf("%x", -1));
 	printf("return = %d\n", ft_printf("%x", -1));

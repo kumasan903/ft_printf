@@ -6,11 +6,18 @@
 /*   By: skawanis <skawanis@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 22:42:48 by skawanis          #+#    #+#             */
-/*   Updated: 2023/03/27 21:16:58 by skawanis         ###   ########.fr       */
+/*   Updated: 2023/03/27 21:57:00 by skawanis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static ssize_t	printf_putstr_fd(char *str, int fd)
+{
+	if (str == NULL)
+		return (ft_putstr_fd("(null)", fd));
+	return (ft_putstr_fd(str, fd));
+}
 
 static ssize_t	ft_putptr_fd(size_t ptr, int fd)
 {
@@ -27,7 +34,7 @@ static ssize_t	handle_format(char type, va_list list)
 	if (type == 'c')
 		return (ft_putchar_fd(va_arg(list, int), 1));
 	if (type == 's')
-		return (ft_putstr_fd(va_arg(list, char *), 1));
+		return (printf_putstr_fd(va_arg(list, char *), 1));
 	if (type == 'u')
 		return (ft_putuint_fd(va_arg(list, unsigned int), 1));
 	if (type == 'x')
