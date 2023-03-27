@@ -16,7 +16,7 @@ ssize_t	handle_format(char type, va_list list)
 {
 	if (type == 'd' || type == 'i')
 	{
-		return(ft_putnbr_fd(va_arg(list, int), 1));
+		return (ft_putnbr_fd(va_arg(list, int), 1));
 	}
 	return (0);
 }
