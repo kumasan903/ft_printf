@@ -6,7 +6,7 @@
 /*   By: skawanis <skawanis@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:43:13 by skawanis          #+#    #+#             */
-/*   Updated: 2023/03/27 21:14:21 by skawanis         ###   ########.fr       */
+/*   Updated: 2023/03/27 21:18:03 by skawanis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ void	test2(void)
 	puts("==test9== (\"ptr = %p\\t\", NULL)");
 	printf("return = %d\n", printf("ptr = %p\t", NULL));
 	printf("return = %d\n", ft_printf("ptr = %p\t", NULL));
+	puts("==test10== (\"%%\")");
+	printf("return = %d\n", printf("%%"));
+	printf("return = %d\n", ft_printf("%%"));
 }
 
 int	main(void)

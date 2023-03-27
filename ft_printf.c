@@ -6,7 +6,7 @@
 /*   By: skawanis <skawanis@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 22:42:48 by skawanis          #+#    #+#             */
-/*   Updated: 2023/03/27 21:14:38 by skawanis         ###   ########.fr       */
+/*   Updated: 2023/03/27 21:16:58 by skawanis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static ssize_t	handle_format(char type, va_list list)
 		return (ft_putupperhex_fd(va_arg(list, int), 1));
 	if (type == 'p')
 		return (ft_putptr_fd(va_arg(list, size_t), 1));
+	if (type == '%')
+		return (ft_putchar_fd('%', 1));
 	return (0);
 }
 
