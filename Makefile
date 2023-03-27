@@ -26,4 +26,4 @@ test	: $(NAME)
 	./a.out
 	@rm a.out
 
-.PHONY	:	clean fclean re all
+.PHONY	:	clean fclean re all test
