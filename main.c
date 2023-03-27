@@ -6,7 +6,7 @@
 /*   By: skawanis <skawanis@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:43:13 by skawanis          #+#    #+#             */
-/*   Updated: 2023/03/27 21:18:03 by skawanis         ###   ########.fr       */
+/*   Updated: 2023/03/27 21:45:32 by skawanis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,33 @@ void	test2(void)
 	printf("return = %d\n", ft_printf("%%"));
 }
 
+void	test3(void)
+{
+	printf("return = %d\n", printf("%s", NULL));
+	printf("return = %d\n", ft_printf("%s", NULL));
+	puts("===");
+	printf("return = %d\n", printf("%p", 0));
+	printf("return = %d\n", ft_printf("%p", 0));
+	puts("===");
+	printf("return = %d\n", printf("%x", -1));
+	printf("return = %d\n", ft_printf("%x", -1));
+	puts("===");
+	printf("return = %d\n", printf("%x", -42));
+	printf("return = %d\n", ft_printf("%x", -42));
+	puts("===");
+	printf("return = %d\n", printf("%x", 9223372036854775807LL));
+	printf("return = %d\n", ft_printf("%x", 9223372036854775807LL));
+	puts("===");
+	printf("return = %d\n", printf(" %% "));
+	printf("return = %d\n", ft_printf(" %% "));
+	puts("===");
+	printf("return = %d\n", printf(" %%   %%   %% "));
+	printf("return = %d\n", ft_printf(" %%   %%   %% "));
+}
+
 int	main(void)
 {
 	test1();
 	test2();
+	test3();
 }
