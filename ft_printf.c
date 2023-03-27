@@ -22,6 +22,8 @@ ssize_t	handle_format(char type, va_list list)
 		return (ft_putchar_fd(va_arg(list, int), 1));
 	if (type == 's')
 		return (ft_putstr_fd(va_arg(list, char *), 1));
+	if (type == 'u')
+		return (ft_putuint_fd(va_arg(list, unsigned int), 1));
 	return (0);
 }
 

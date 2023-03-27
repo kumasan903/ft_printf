@@ -6,7 +6,7 @@
 /*   By: skawanis <skawanis@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:43:13 by skawanis          #+#    #+#             */
-/*   Updated: 2023/03/27 18:43:15 by skawanis         ###   ########.fr       */
+/*   Updated: 2023/03/27 20:51:13 by skawanis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,7 @@ int	main(void)
 	puts("==test4== (\"str = %s\t\", \"sabakan\")");
 	printf("return = %d\n", printf("str = %s\t", "sabakan"));
 	printf("return = %d\n", ft_printf("str = %s\t", "sabakan"));
+	puts("==test5== (\"uint = %u\\t\", UINT_MAX)");
+	printf("return = %d\n", printf("uint = %u\t", UINT_MAX));
+	printf("return = %d\n", ft_printf("uint = %u\t", UINT_MAX));
 }
