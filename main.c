@@ -24,4 +24,7 @@ int	main(void)
 	puts("==test3== (\"num = %i\\t\", INT_MIN)");
 	printf("return = %d\n", printf("num = %i\t", INT_MIN));
 	printf("return = %d\n", ft_printf("num = %i\t", INT_MIN));
+	puts("test4== (\"char = %c\\t\", 'c')");
+	printf("return = %d\n", printf("char = %c\t", 'c'));
+	printf("return = %d\n", ft_printf("char = %c\t", 'c'));
 }

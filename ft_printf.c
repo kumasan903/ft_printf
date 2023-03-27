@@ -18,6 +18,8 @@ ssize_t	handle_format(char type, va_list list)
 	{
 		return (ft_putnbr_fd(va_arg(list, int), 1));
 	}
+	if (type == 'c')
+		return (ft_putchar_fd(va_arg(list, int), 1));
 	return (0);
 }
 
