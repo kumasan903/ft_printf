@@ -21,4 +21,9 @@ fclean	:	clean
 
 re		:	fclean all
 
+test	: $(NAME)
+	gcc main.c $(NAME)
+	./a.out
+	@rm a.out
+
 .PHONY	:	clean fclean re all
