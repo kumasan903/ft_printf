@@ -12,7 +12,32 @@
 
 #include "ft_printf.h"
 
+void handle_format(char type, va_list list)
+{
+	if (type == 'd' || type == 'i')
+	{
+		ft_putnbr_fd(va_arg(list, int), 1);
+	}
+}
+
 int	ft_printf(const char *fmt, ...)
 {
-	return (ft_putstr_fd((char *)fmt, 1));
+	const size_t	fmt_len = ft_strlen_s(fmt);
+	size_t	i;
+	va_list	list;
+
+	va_start(list, fmt);
+	i = 0;
+	while (i < fmt_len)
+	{
+		while (fmt[i] != '\0' && fmt[i] != '%')
+		{
+			ft_putchar_fd(fmt[i], 1);
+			i++;
+		}
+		handle_format(fmt[i + 1], list);
+		i += 2;
+	}
+	va_end(list);
+	return (0);
 }
