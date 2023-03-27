@@ -27,4 +27,7 @@ int	main(void)
 	puts("test4== (\"char = %c\\t\", 'c')");
 	printf("return = %d\n", printf("char = %c\t", 'c'));
 	printf("return = %d\n", ft_printf("char = %c\t", 'c'));
+	puts("==test4== (\"str = %s\t\", \"sabakan\")");
+	printf("return = %d\n", printf("str = %s\t", "sabakan"));
+	printf("return = %d\n", ft_printf("str = %s\t", "sabakan"));
 }
