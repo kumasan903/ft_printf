@@ -6,7 +6,7 @@
 /*   By: skawanis <skawanis@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 22:42:48 by skawanis          #+#    #+#             */
-/*   Updated: 2023/03/27 21:57:00 by skawanis         ###   ########.fr       */
+/*   Updated: 2023/03/27 22:50:22 by skawanis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ static ssize_t	handle_format(char type, va_list list)
 	if (type == 'u')
 		return (ft_putuint_fd(va_arg(list, unsigned int), 1));
 	if (type == 'x')
-		return (ft_putlowerhex_fd(va_arg(list, int), 1));
+		return (ft_putlowerhex_fd(va_arg(list, unsigned int), 1));
 	if (type == 'X')
-		return (ft_putupperhex_fd(va_arg(list, int), 1));
+		return (ft_putupperhex_fd(va_arg(list, unsigned int), 1));
 	if (type == 'p')
 		return (ft_putptr_fd(va_arg(list, size_t), 1));
 	if (type == '%')
