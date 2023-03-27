@@ -33,4 +33,10 @@ int	main(void)
 	puts("==test5== (\"uint = %u\\t\", UINT_MAX)");
 	printf("return = %d\n", printf("uint = %u\t", UINT_MAX));
 	printf("return = %d\n", ft_printf("uint = %u\t", UINT_MAX));
+	puts("==test6== (\"hex = %x\\t\", 123456)");
+	printf("return = %d\n", printf("hex = %x\t", 123456));
+	printf("return = %d\n", ft_printf("hex = %x\t", 123456));
+	puts("==test7== (\"HEX = %X\\t\", 123456)");
+	printf("return = %d\n", printf("HEX = %X\t", 123456));
+	printf("return = %d\n", ft_printf("HEX = %X\t", 123456));
 }

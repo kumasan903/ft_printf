@@ -24,6 +24,10 @@ ssize_t	handle_format(char type, va_list list)
 		return (ft_putstr_fd(va_arg(list, char *), 1));
 	if (type == 'u')
 		return (ft_putuint_fd(va_arg(list, unsigned int), 1));
+	if (type == 'x')
+		return (ft_putlowerhex_fd(va_arg(list, int), 1));
+	if (type == 'X')
+		return (ft_putupperhex_fd(va_arg(list, int), 1));
 	return (0);
 }
 
