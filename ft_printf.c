@@ -6,7 +6,7 @@
 /*   By: skawanis <skawanis@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 22:42:48 by skawanis          #+#    #+#             */
-/*   Updated: 2023/03/27 22:50:22 by skawanis         ###   ########.fr       */
+/*   Updated: 2023/05/11 19:14:10 by skawanis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,14 @@ int	ft_printf(const char *fmt, ...)
 	i = 0;
 	while (i < fmt_len)
 	{
-		while (fmt[i] != '\0' && fmt[i] != '%')
+		if (fmt[i] == '%')
 		{
-			printed_count += ft_putchar_fd(fmt[i], 1);
-			i++;
+			printed_count += handle_format(fmt[i + 1], list);
+			i += 2;
+			continue ;
 		}
-		printed_count += handle_format(fmt[i + 1], list);
-		i += 2;
+		printed_count += ft_putchar_fd(fmt[i], 1);
+		i++;
 	}
 	va_end(list);
 	return (printed_count);

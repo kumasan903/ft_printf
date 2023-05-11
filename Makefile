@@ -1,10 +1,10 @@
-NAME	= libftprintf.a
-SRCS	= ft_printf.c
-OBJS	= $(SRCS:.c=.o)
-CC		= cc
-CFLAGS	= -Wall -Wextra -Werror
-CFLAGS += -g -fsanitize=address -fsanitize=undefined
-ARFLAGS = rcs
+NAME		= libftprintf.a
+SRCS		= ft_printf.c
+OBJS		= $(SRCS:.c=.o)
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror
+TESTCFLAGS	= -g -fsanitize=address -fsanitize=undefined
+ARFLAGS		= rcs
 
 all		:	$(NAME)
 
@@ -23,7 +23,7 @@ fclean	:	clean
 re		:	fclean all
 
 test	: $(NAME)
-	$(CC) $(CFLAGS) main.c $(NAME)
+	$(CC) $(CFLAGS) $(TESTCFLAGS) main.c $(NAME)
 	./a.out
 	@rm a.out
 
