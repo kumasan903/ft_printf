@@ -6,7 +6,7 @@
 /*   By: skawanis <skawanis@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 22:42:48 by skawanis          #+#    #+#             */
-/*   Updated: 2023/05/11 19:14:10 by skawanis         ###   ########.fr       */
+/*   Updated: 2023/05/13 23:19:32 by skawanis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,21 @@ static ssize_t	printf_putstr_fd(char *str, int fd)
 
 static ssize_t	ft_putptr_fd(size_t ptr, int fd)
 {
-	ft_putstr_fd("0x", fd);
-	return (2 + ft_putlowerhex_fd(ptr, fd));
+	ssize_t	tmp;
+
+	tmp = ft_putstr_fd("0x", fd);
+	if (tmp < 2)
+		return (-1);
+	tmp = ft_putlowerhex_fd(ptr, fd);
+	if (tmp < 0)
+		return (-1);
+	return (2 + tmp);
 }
 
 static ssize_t	handle_format(char type, va_list list)
 {
 	if (type == 'd' || type == 'i')
-	{
 		return (ft_putnbr_fd(va_arg(list, int), 1));
-	}
 	if (type == 'c')
 		return (ft_putchar_fd(va_arg(list, int), 1));
 	if (type == 's')
@@ -60,6 +65,8 @@ int	ft_printf(const char *fmt, ...)
 	i = 0;
 	while (i < fmt_len)
 	{
+		if (printed_count > INT_MAX)
+			return (-1);
 		if (fmt[i] == '%')
 		{
 			printed_count += handle_format(fmt[i + 1], list);
